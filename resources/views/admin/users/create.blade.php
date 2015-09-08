@@ -3,10 +3,12 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
+				<div class="panel-heading">Create new user</div>
+
 				<div class="panel-body">
+
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -17,16 +19,11 @@
 							</ul>
 						</div>
 					@endif
+					{{ Session::get('message') }}
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
-						{!! csrf_field() !!}
+					{!! Form::open(['route'=>'admin.users.store', 'class'=>'form-horizontal']) !!}
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Username</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="username" value="{{ old('username') }}">
-							</div>
-						</div>
+						@include('admin.users.partials.form')
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Password</label>
@@ -47,9 +44,13 @@
 								<button type="submit" class="btn btn-primary">
 									Register
 								</button>
+								<a href="{{ action('Admin\UsersController@index') }}" class="btn btn-danger">
+									Cancel
+								</a>
 							</div>
 						</div>
-					</form>
+
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>

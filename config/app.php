@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kathmandu',
 
     /*
     |--------------------------------------------------------------------------
@@ -145,7 +145,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /* Third-party packages */
-        'Zizaco\Entrust\EntrustServiceProvider'
+        // 'Zizaco\Entrust\EntrustServiceProvider',
+        'Collective\Html\HtmlServiceProvider',
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -195,7 +197,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         /* Third-party packages */
-        'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
+        // 'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
+        'Form'      => 'Collective\Html\FormFacade',
+        'Html'      => 'Collective\Html\HtmlFacade',
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

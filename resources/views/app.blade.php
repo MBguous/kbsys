@@ -40,12 +40,11 @@
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
 					@else
-						<li><a href="#">Users</a></li>
+						<li><a href="{{ url('/admin/users') }}">Users</a></li>
 						<li><a href="#">Billing</a></li>
 						<li><a href="#">Stock</a></li>
-						<li><a href="#">Suppliers</a></li>
+						<li><a href="{{ url('/admin/suppliers') }}">Suppliers</a></li>
 						<li><a href="#">Reports</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
